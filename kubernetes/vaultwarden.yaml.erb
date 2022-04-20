@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: vaultwarden
-          image: "docker.ocf.berkeley.edu/vaultwarden:latest"
+          image: "docker.ocf.berkeley.edu/vaultwarden:<%= version %>"
           env:
           volumeMounts:
             - mountPath: "/data"
