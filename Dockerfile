@@ -1,2 +1,2 @@
-ARG bitwarden_version=1.24.0
+ARG bitwarden_version=1.26.0
 FROM vaultwarden/server:${bitwarden_version}
