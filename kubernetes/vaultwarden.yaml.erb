@@ -65,5 +65,6 @@ metadata:
 type: Opaque
 stringData:
   ADMIN_TOKEN: <%= vaultwarden_admin_token %>
+  DATABASE_URL: postgresql://ocfvaultwarden:<%= vaultwarden_postgres_password %>@postgres.ocf.berkeley.edu/ocfvaultwarden
   DOMAIN: https://vaultwarden.ocf.berkeley.edu
   SIGNUPS_ALLOWED: "false"
