@@ -30,7 +30,7 @@ spec:
           image: "docker.ocf.berkeley.edu/vaultwarden:<%= version %>"
           envFrom:
             - secretRef:
-              name: vaultwarden-secret
+                name: vaultwarden-secret
           volumeMounts:
             - mountPath: "/data"
               name: vaultwarden-data
