@@ -43,7 +43,8 @@ spec:
           env:
       volumes:
         - name: vaultwarden-data
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: vaultwarden-volume
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -57,6 +58,18 @@ spec:
           - backend:
               serviceName: service
               servicePort: 80
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vaultwarden-volume
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: managed-nfs-storage
 ---
 apiVersion: v1
 kind: Secret
