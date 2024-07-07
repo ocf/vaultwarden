@@ -1,4 +1,4 @@
-from transpire.resources import ConfigMap, Deployment, Ingress, PersistentVolumeClaim, Secret, Service
+from transpire.resources import ConfigMap, Ingress, PersistentVolumeClaim, Secret, Service, StatefulSet
 
 name = "vaultwarden"
 
@@ -35,7 +35,7 @@ def objects():
     )
     yield secret.build()
 
-    dep = Deployment(
+    dep = StatefulSet(
         name="vaultwarden",
         image="vaultwarden/server:1.29.1",
         ports=[80],
