@@ -23,7 +23,7 @@ def objects():
     pvc = PersistentVolumeClaim(
         name="vaultwarden-data",
         storage="10Gi",
-        access_modes="ReadWriteOnce",
+        access_modes=["ReadWriteOnce"],
     )
     yield pvc.build()
 
