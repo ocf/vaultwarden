@@ -57,7 +57,7 @@ def objects():
     ]
 
     env = {
-        "DATABASE_URL": "postgres://$(_DB_USER):$(_DB_PASS)@ocf-vaultwarden:5432/vaultwarden?ssl=no-verify",
+        "DATABASE_URL": "postgres://$(_DB_USER):$(_DB_PASS)@ocf-vaultwarden:5432/vaultwarden",
         "DOMAIN": "https://vaultwarden.ocf.berkeley.edu",
         "SIGNUPS_ALLOWED": "false",
     }
