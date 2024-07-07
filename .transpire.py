@@ -39,6 +39,7 @@ def objects():
         name="vaultwarden",
         image="vaultwarden/server:1.29.1",
         ports=[80],
+        service_name="vaultwarden"
     )
 
     dep.obj.spec.template.spec.volumes = [
