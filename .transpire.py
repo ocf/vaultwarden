@@ -25,6 +25,7 @@ def objects():
         storage="10Gi",
         access_modes="ReadWriteOnce",
     )
+    yield pvc.build()
 
     secret = Secret(
         "vaultwarden",
