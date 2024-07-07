@@ -31,9 +31,6 @@ def objects():
         "vaultwarden",
         string_data={
             "ADMIN_TOKEN": "",
-            "DATABASE_URL": "",
-            "DOMAIN": "",
-            "SIGNUPS_ALLOWED": "",
         },
     )
     yield secret.build()
@@ -59,11 +56,30 @@ def objects():
     ]
 
     env = {
+        "DATABASE_URL": "postgres://$(_DB_USER):$(_DB_PASS)@ocf-vaultwarden:5432/vaultwarden?ssl=no-verify",
         "DOMAIN": "https://vaultwarden.ocf.berkeley.edu",
         "SIGNUPS_ALLOWED": "false",
     }
 
     dep.obj.spec.template.spec.containers[0].env = [
+        {
+            "name": "_DB_USER",
+            "valueFrom": {
+                "secretKeyRef": {
+                    "name": "vaultwarden.ocf-vaultwarden.credentials.postgresql.acid.zalan.do",
+                    "key": "username",
+                }
+            },
+        },
+        {
+            "name": "_DB_PASS",
+            "valueFrom": {
+                "secretKeyRef": {
+                    "name": "vaultwarden.ocf-vaultwarden.credentials.postgresql.acid.zalan.do",
+                    "key": "password",
+                }
+            },
+        },
         {
             "name": "ADMIN_TOKEN",
             "valueFrom": {
