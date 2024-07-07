@@ -14,7 +14,7 @@ def objects():
                 "storageClass": "rbd-nvme",
             },
             "numberOfInstances": 1,
-            "users": {"vfaultwarden": ["superuser", "createdb"]},
+            "users": {"vaultwarden": ["superuser", "createdb"]},
             "databases": {"vaultwarden": "vaultwarden"},
             "postgresql": {"version": "15"},
         },
